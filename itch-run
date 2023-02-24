@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -oue pipefail
+
+export FLATPAK_ID="${FLATPAK_ID:-"io.itch.itch"}"
+export TMPDIR="${XDG_RUNTIME_DIR}/app/${FLATPAK_ID}"
+
+EXTRA_ARGS=()
+
+if [[ -c /dev/nvidia0 ]]; then
+    echo "Debug: Detecting Nvidia GPU"
+    EXTRA_FLAGS+=("--disable-gpu-sandbox")
+fi
+
+echo "Debug: Will run Itch with the following arguments: ${EXTRA_ARGS[@]}"
+echo "Debug: Additionally, user gave: $@"
+
+zypak-wrapper /app/bin/itch $@ ${EXTRA_FLAGS[@]}
