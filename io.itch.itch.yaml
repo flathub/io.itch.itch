@@ -118,10 +118,8 @@ modules:
       - type: file
         path: io.itch.itch.metainfo.xml
 
-      - type: script
-        dest-filename: itch-run
-        commands:
-          - zypak-wrapper.sh /app/bin/itch "$@"
+      - type: file
+        path: itch-run
 
       - type: archive
         strip-components: 0
