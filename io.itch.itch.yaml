@@ -98,6 +98,8 @@ modules:
 #        x-checker-data:
 #          type: git
 #          tag-pattern: ^v([\\d.]+)$
+      - type: patch
+        path: gamemode-pidfd-open.patch
 
   - name: itch
     buildsystem: simple
