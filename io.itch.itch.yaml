@@ -22,7 +22,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
 
-  - --env=PATH=/app/bin:/usr/bin:/app/utils/gamescope/bin
+  - --env=PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin
   - --env=WINEPREFIX=/var/data/wine
   - --env=WINEDLLOVERRIDES=mscoree,mshtml='
   - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib:/app/lib32/wine/wined3d:/app/lib/wine/wined3d
@@ -48,10 +48,6 @@ add-extensions:
     directory: lib/debug/lib/i386-linux-gnu
     no-autodownload: true
     version: '23.08'
-
-  com.valvesoftware.Steam.Utility.gamescope:
-    add-ld-path: lib
-    directory: utils/gamescope
 
 modules:
   - shared-modules/glu/glu-9.json
