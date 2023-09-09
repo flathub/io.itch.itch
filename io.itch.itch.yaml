@@ -1,6 +1,6 @@
 app-id: io.itch.itch
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 base: org.winehq.Wine
 base-version: stable-22.08
@@ -47,7 +47,7 @@ add-extensions:
   org.freedesktop.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
     no-autodownload: true
-    version: "22.08"
+    version: '23.08'
 
 modules:
   - shared-modules/glu/glu-9.json
@@ -94,6 +94,8 @@ modules:
 #        x-checker-data:
 #          type: git
 #          tag-pattern: ^v([\\d.]+)$
+      - type: patch
+        path: gamemode-pidfd-open.patch
 
   - name: itch
     buildsystem: simple
