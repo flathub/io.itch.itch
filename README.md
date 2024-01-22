@@ -10,7 +10,7 @@ Uses wine as a base, to provide support for windows games.
 
 ## Development
   - Development tools: `sudo dnf install -y flatpak-builder`
-  - Install dependencies: `flatpak install flathub org.winehq.Wine/x86_64/stable-22.08 org.freedesktop.Sdk/x86_64/22.08`
+  - Install dependencies: `flatpak install flathub org.winehq.Wine/x86_64/stable-23.08 org.freedesktop.Sdk/x86_64/23.08`
   - Build application: `flatpak-builder build io.itch.Itch.yaml --install --user --force-clean`
   - Run application: `flatpak run io.itch.Itch`
 
