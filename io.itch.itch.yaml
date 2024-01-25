@@ -121,8 +121,8 @@ modules:
 
       - type: archive
         strip-components: 0
-        url: https://broth.itch.ovh/itch/linux-amd64/25.5.1/itch-linux-amd64.zip
-        sha256: fdd916c79beb90c19c7ee404e11398e5f2f5c7c402ae68910b4f70e6918071ed
+        url: https://broth.itch.zone/kitch/linux-amd64/26.1.3/archive/default
+        sha256: 5a4079ddce5770dcddc947e64fe28e01de253d45b7a7ba24d4dc2aa48fb59a10
 #        x-checker-data:
 #          type: rotating-url
 #          url: https://broth.itch.ovh/itch/linux-amd64/25.5.1/itch-linux-amd64.zip
