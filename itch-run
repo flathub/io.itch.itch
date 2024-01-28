@@ -15,4 +15,4 @@ fi
 echo "Debug: Will run Itch with the following arguments: ${EXTRA_ARGS[@]}"
 echo "Debug: Additionally, user gave: $@"
 
-zypak-wrapper /app/bin/itch $@ ${EXTRA_FLAGS[@]}
+zypak-wrapper /app/bin/kitch $@ ${EXTRA_FLAGS[@]}
