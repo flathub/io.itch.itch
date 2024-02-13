@@ -86,19 +86,14 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release version="v25.5.1" date="2021-05-11">
-      <url>https://github.com/itchio/itch/releases/tag/v25.5.1</url>
+		<release version="v26.1.5-canary" date="2024-01-22">
+      <url>https://github.com/itchio/itch/releases/tag/v26.1.5-canary</url>
 			<description>
 				<ul>
-				  <li>Update to Electron 10.4.5</li>
-          <li>
-            <ul>
-              <li>This release fixes a bug within Electron that prevented HTML5 games that use wasm from loading</li>
-            </ul>
-          </li>
-          <li>Update various dependencies</li>
-          <li>App is now signed with itch corp. certificate. (Also updated butler and itch-setup)</li>
-          <li>Add physical games as a common filter option</li>
+					<li>Update translations. Several new languages!</li>
+					<li>Check for game updates automatically when viewing an installed game's page</li>
+					<li>Add option for manually triggering a full-library game update check</li>
+					<li>Fix issue where some links on game pages weren't clickable</li>
 				</ul>
 			</description>
 		</release>
