@@ -18,6 +18,10 @@
 	<categories>
 		<category>Game</category>
 	</categories>
+	<branding>
+		<color type="primary" scheme_preference="light">#fa5c5cff</color>
+		<color type="primary" scheme_preference="dark">#d54c4cff</color>
+	</branding>
 	<description>
 		<p>
 		The itch.io app, itch, lets you effortlessly download and run games and software from itch.io. All of your downloads are kept in a single place and are automatically updated. Access your collections and purchases, or browse for new games via the in-app browser.
