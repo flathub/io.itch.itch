@@ -77,16 +77,32 @@
   </content_rating>
 	<screenshots>
 		<screenshot type="default">
-			<caption>Collections</caption>
-			<image>https://static.itch.io/images/app/collections@1x.png</image>
+			<caption>Library</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/library.png</image>
 		</screenshot>
 		<screenshot>
-			<caption>Content browsing</caption>
-			<image>https://static.itch.io/images/app/gamepage@1x.png</image>
+			<caption>Store</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/store.png</image>
 		</screenshot>
 		<screenshot>
-			<caption>Offline browser games</caption>
-			<image>https://static.itch.io/images/app/html5@1x.png</image>
+			<caption>Downloads</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/downloads.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Game</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/game.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Login</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/login.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Startup</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/startup.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Settings</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/setting.png</image>
 		</screenshot>
 	</screenshots>
 	<releases>
