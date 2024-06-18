@@ -89,17 +89,13 @@
 		<release version="v25.5.1" date="2021-05-11">
       <url>https://github.com/itchio/itch/releases/tag/v25.5.1</url>
 			<description>
-				<ul>
-				  <li>Update to Electron 10.4.5</li>
-          <li>
-            <ul>
-              <li>This release fixes a bug within Electron that prevented HTML5 games that use wasm from loading</li>
-            </ul>
-          </li>
-          <li>Update various dependencies</li>
-          <li>App is now signed with itch corp. certificate. (Also updated butler and itch-setup)</li>
-          <li>Add physical games as a common filter option</li>
-				</ul>
+				  Update to Electron 10.4.5
+          
+              This release fixes a bug within Electron that prevented HTML5 games that use wasm from loading
+          
+          Update various dependencies
+          App is now signed with itch corp. certificate. (Also updated butler and itch-setup)
+          Add physical games as a common filter option
 			</description>
 		</release>
 	</releases>
