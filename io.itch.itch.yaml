@@ -89,8 +89,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FeralInteractive/gamemode.git
-        tag: '1.7'
-        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
+        tag: 1.8.1
+        commit: 5180d89e66830d87f69687b95fb86f622552b94b
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
