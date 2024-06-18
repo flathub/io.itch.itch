@@ -122,8 +122,8 @@ modules:
         archive-type: zip
         url: https://broth.itch.zone/itch/linux-amd64/25.6.2/archive/default
         sha256: 46b16cc160a8e9720e190be14d91c6b290f3cce0fffadfffd20323296c9c09de
-#        x-checker-data:
-#          type: rotating-url
-#          url: https://broth.itch.ovh/itch/linux-amd64/25.5.1/itch-linux-amd64.zip
-#          pattern: https://broth.itch.ovh/itch/linux-amd64/v([0-9.]+)/itch-linux-amd64.zip
-
+        x-checker-data:
+          type: html
+          url: https://broth.itch.ovh/itch/linux-amd64
+          version-pattern: (\d+\.\d+\.\d+)</a>
+          url-template: "https://broth.itch.zone/itch/linux-amd64/$version/archive/default"
