@@ -89,8 +89,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/FeralInteractive/gamemode.git
-        tag: 1.8.1
-        commit: 5180d89e66830d87f69687b95fb86f622552b94b
+        tag: 1.8.2
+        commit: c54d6d4243b0dd0afcb49f2c9836d432da171a2b
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -126,4 +126,4 @@ modules:
           type: html
           url: https://broth.itch.ovh/itch/linux-amd64
           version-pattern: (\d+\.\d+\.\d+)</a>
-          url-template: "https://broth.itch.zone/itch/linux-amd64/$version/archive/default"
+          url-template: https://broth.itch.zone/itch/linux-amd64/$version/archive/default
