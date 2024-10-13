@@ -1,9 +1,9 @@
 app-id: io.itch.itch
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: &runtime-version '24.08'
 sdk: org.freedesktop.Sdk
 base: org.winehq.Wine
-base-version: stable-23.08
+base-version: stable-24.08
 command: itch-run
 separate-locales: false
 finish-args:
@@ -47,7 +47,7 @@ add-extensions:
   org.freedesktop.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
     no-autodownload: true
-    version: '23.08'
+    version: *runtime-version
 
 modules:
   - shared-modules/glu/glu-9.json
