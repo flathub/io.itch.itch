@@ -22,6 +22,8 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
 
+  - --filesystem=xdg-data/icons:ro
+
   - --env=PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin
   - --env=WINEPREFIX=/var/data/wine
   - --env=WINEDLLOVERRIDES=mscoree,mshtml='
