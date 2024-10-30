@@ -15,4 +15,5 @@ fi
 echo "Debug: Will run Itch with the following arguments: ${EXTRA_ARGS[@]}"
 echo "Debug: Additionally, user gave: $@"
 
+EXTRA_FLAGS+=("--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform-hint=auto")
 zypak-wrapper /app/bin/itch $@ ${EXTRA_FLAGS[@]}
