@@ -31,6 +31,7 @@ finish-args:
   - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib:/app/lib32/wine/wined3d:/app/lib/wine/wined3d
   - --env=LD_LIBRARY_PATH=/app/lib:/app/lib32
   - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0:/app/lib32/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 
   - --persist=.wine
   - --persist=.wine64
