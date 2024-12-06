@@ -22,6 +22,9 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
 
+  # Needed for the tray icon to work properly
+  - --own-name=org.kde.*
+
   - --env=PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin
   - --env=WINEPREFIX=/var/data/wine
   - --env=WINEDLLOVERRIDES=mscoree,mshtml='
