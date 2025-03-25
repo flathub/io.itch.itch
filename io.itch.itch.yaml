@@ -71,8 +71,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/netblue30/firejail.git
-        tag: 0.9.72
-        commit: 2551bc71f14052344666f3ca2ad67f5b798020b9
+        tag: 0.9.74
+        commit: c3cc7d3307b480bbcfb18150395677a093e155f2
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -130,4 +130,4 @@ modules:
           type: html
           url: https://broth.itch.ovh/itch/linux-amd64
           version-pattern: (\d+\.\d+\.\d+)</a>
-          url-template: "https://broth.itch.zone/itch/linux-amd64/$version/archive/default"
+          url-template: https://broth.itch.zone/itch/linux-amd64/$version/archive/default
