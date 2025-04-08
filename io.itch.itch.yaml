@@ -44,7 +44,6 @@ inherit-extensions:
   - org.freedesktop.Platform.ffmpeg_full.i386
   - org.winehq.Wine.gecko
   - org.winehq.Wine.mono
-  - org.winehq.Wine.DLLs
 
 add-extensions:
 
