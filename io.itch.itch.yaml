@@ -59,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/refi64/zypak
-        tag: v2024.01.17
-        commit: ded79a2f8a509adc21834b95a9892073d4a91fdc
+        tag: v2025.09
+        commit: 693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -70,8 +70,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/netblue30/firejail.git
-        tag: 0.9.74
-        commit: c3cc7d3307b480bbcfb18150395677a093e155f2
+        tag: 0.9.76
+        commit: 622c59f53f8582c3c2f9fe40709cf2db0c2a0c45
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
