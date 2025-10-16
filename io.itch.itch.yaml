@@ -1,9 +1,9 @@
 app-id: io.itch.itch
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version '24.08'
+runtime-version: &runtime-version '25.08'
 sdk: org.freedesktop.Sdk
 base: org.winehq.Wine
-base-version: stable-24.08
+base-version: stable-25.08
 command: itch-run
 separate-locales: false
 finish-args:
