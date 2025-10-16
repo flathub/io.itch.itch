@@ -1,9 +1,9 @@
 app-id: io.itch.itch
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version '24.08'
+runtime-version: &runtime-version '25.08'
 sdk: org.freedesktop.Sdk
 base: org.winehq.Wine
-base-version: stable-24.08
+base-version: stable-25.08
 command: itch-run
 separate-locales: false
 finish-args:
@@ -39,9 +39,8 @@ finish-args:
 
 inherit-extensions:
   - org.freedesktop.Platform.GL32
-  - org.freedesktop.Platform.ffmpeg-full
   - org.freedesktop.Platform.Compat.i386
-  - org.freedesktop.Platform.ffmpeg_full.i386
+  - org.freedesktop.Platform.codecs_extra.i386
   - org.winehq.Wine.gecko
   - org.winehq.Wine.mono
 
@@ -59,8 +58,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/refi64/zypak
-        tag: v2024.01.17
-        commit: ded79a2f8a509adc21834b95a9892073d4a91fdc
+        tag: v2025.09
+        commit: 693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -70,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/netblue30/firejail.git
-        tag: 0.9.74
-        commit: c3cc7d3307b480bbcfb18150395677a093e155f2
+        tag: 0.9.76
+        commit: 622c59f53f8582c3c2f9fe40709cf2db0c2a0c45
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
