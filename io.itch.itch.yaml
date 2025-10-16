@@ -69,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/netblue30/firejail.git
-        tag: 0.9.74
-        commit: c3cc7d3307b480bbcfb18150395677a093e155f2
+        tag: 0.9.76
+        commit: 622c59f53f8582c3c2f9fe40709cf2db0c2a0c45
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
