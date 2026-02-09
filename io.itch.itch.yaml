@@ -126,6 +126,6 @@ modules:
         sha256: 063a4d545212a387b16d5d3da7884a569f0b86acfccb8d50c5719dc8c80e4020
         x-checker-data:
           type: html
-          url: https://broth.itch.ovh/itch/linux-amd64
-          version-pattern: (\d+\.\d+\.\d+)</a>
+          url: https://broth.itch.zone/itch/linux-amd64/LATEST
+          version-pattern: ([\d.]+)
           url-template: https://broth.itch.zone/itch/linux-amd64/$version/archive/default
