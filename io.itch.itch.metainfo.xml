@@ -86,6 +86,143 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="v26.9.0" date="2026-02-21">
+			<description>
+				<p>This release upgrades Electron from 25 to 40, overhauls sandboxing across Linux,
+					macOS, and Windows, makes install planning non-blocking, and adds support for
+					compressed HTML game files.</p>
+				<p>
+					<em>macOS 10.15 (Catalina) is no longer supported. macOS 12 (Monterey) or later
+						is now required.</em>
+				</p>
+
+				<p>
+					<em>Electron</em>
+				</p>
+				<ul>
+					<li>Upgrade from Electron 25 to Electron 40 (#3382). Minimum supported macOS
+						version is now 12 (Monterey). Linux now defaults to native Wayland in
+						Wayland sessions.
+					</li>
+					<li>Updated esbuild targets to Node 24 and Chrome 144 to match Electron 40</li>
+					<li>Updated <code>openAsHidden</code> login item setting to only apply on
+						Windows (removed from macOS in newer Electron)</li>
+				</ul>
+
+				<p>
+					<em>Game Installation</em>
+				</p>
+				<ul>
+					<li>Refactored install planning to split install target listing (<code>
+						Install.GetUploads</code>) from per-upload planning (<code>
+						Install.PlanUpload</code>). Due to how the app computes space requirements,
+						it may take some time as our CDN warms up cold files. For this reason we
+						made the size calculation happen asynchronously so you can queue an install
+						immediately without having to wait for install size calculation to complete.</li>
+					<li>Added cancellation support for in-flight install planning requests when
+						changing upload or closing the modal</li>
+					<li>Fixed quadratic operation in collection and library sync that could cause
+						the app to lock up when synchronizing large collections</li>
+					<li>Added hard limits on collection sync (2000 items) and owned keys (5000) to
+						prevent excessive resource consumption</li>
+				</ul>
+
+				<p>
+					<em>Sandboxing - Linux</em>
+				</p>
+				<ul>
+					<li>Added new Bubblewrap sandbox backend with user-namespace isolation, a
+						persistent per-game home directory, read-only system mounts, and GPU, audio,
+						and display passthrough</li>
+					<li>Added Flatpak-spawn sandbox backend for running sandboxed games when itch is
+						installed as a Flatpak</li>
+					<li>Updated Firejail backend with network disable support, an expanded blacklist
+						covering sensitive paths (~/.ssh, ~/.gnupg, ~/.aws, browser data), and
+						environment variable filtering consistent with the new backends</li>
+					<li>Auto-detection selects the best available backend: Flatpak-spawn when inside
+						Flatpak, otherwise Bubblewrap if available, with Firejail as fallback</li>
+				</ul>
+
+				<p>
+					<em>Sandboxing - All Platforms</em>
+				</p>
+				<ul>
+					<li>Unified network disable control across all sandbox backends (Bubblewrap,
+						Flatpak-spawn, Firejail, macOS, Windows)</li>
+					<li>Per-cave sandbox override settings (sandbox type, network access, allowed
+						environment variables)</li>
+					<li>Per-cave extra command-line launch arguments</li>
+					<li>New sandbox preferences under Security &amp; privacy: sandbox type dropdown
+						(<code>Auto</code>, <code>Bubblewrap</code>, <code>Firejail</code>),
+						"Disable network access in sandbox" toggle, and allowed environment variable
+						names input</li>
+					<li>Strict environment variable allowlist: only display, audio, session, and
+						itch.io-specific variables are passed through, with user-configurable
+						additions via preferences</li>
+					<li>Added warning about game save data when changing sandbox settings</li>
+				</ul>
+
+				<p>
+					<em>HTML Games</em>
+				</p>
+				<ul>
+					<li>Handle compressed HTML game files (gzip, brotli, .unityweb) before
+						transferring to client, since protocol URLs do not support content encoding
+						(#3286)</li>
+					<li>Don't try to open non-HTTP links (like <code>about:blank</code>) in external
+						browser (#3394)</li>
+				</ul>
+
+				<p>
+					<em>Changelog Dialog</em>
+				</p>
+				<ul>
+					<li>Reintroduced the in-app changelog dialog</li>
+					<li>Added release tabs for <code>itch</code>, <code>butler</code>, and <code>
+						itch-setup</code></li>
+					<li>Fixed changelog failing to load due to Content Security Policy restrictions
+						by moving GitHub API fetch to main process IPC</li>
+				</ul>
+
+				<p>
+					<em>UI &amp; Accessibility</em>
+				</p>
+				<ul>
+					<li>Added more semantic HTML and ARIA labels across controls (navigation
+						buttons, game management actions, progress indicators, sidebar navigation)</li>
+					<li>Game cover images now include alt text</li>
+					<li>Updated cave version selection rows to semantic buttons</li>
+					<li>Fixed tab list scrollbar rendering issues (#3384)</li>
+					<li>Updated <code>react-tabs</code> to v4.3.0 with bundled types and added
+						global tab styles</li>
+					<li>Improved login form alignment and spacing</li>
+					<li>Allow logs in log viewer to be copied and pasted (#3000)</li>
+				</ul>
+
+				<p>
+					<em>Bug Fixes</em>
+				</p>
+				<ul>
+					<li>Fixed Windows game launching broken by a Go runtime update</li>
+					<li>Fixed macOS memory leak in file path resolution</li>
+					<li>Fix log entries not showing up correctly in game crash dialog</li>
+					<li>Fix TypeScript buffer type handling in memory streams</li>
+				</ul>
+
+				<p>
+					<em>Other</em>
+				</p>
+				<ul>
+					<li>Changed app ID from <code>com.squirrel.itch.itch</code> to <code>
+						io.itch.itch</code></li>
+					<li>Disabled remote locale fetching (locales.itch.zone no longer exists)</li>
+					<li>Use Node's built-in sourcemap support, removing <code>source-map-support</code>
+						dependency</li>
+					<li>Reviewed the itch docs and modernized many pages
+						(https://itch.io/docs/itch/)</li>
+				</ul>
+			</description>
+		</release>
 		<release version="v26.6.0" date="2026-02-06">
 		</release>
 		<release version="v26.1.9" date="2024-06-06">
