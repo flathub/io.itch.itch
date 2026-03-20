@@ -4,7 +4,7 @@
 	<id>io.itch.itch</id>
 	<launchable type="desktop-id">io.itch.itch.desktop</launchable>
 	<name>itch</name>
-	<summary>Install, update and play indie games</summary>
+	<summary>Indie Game Launcher</summary>
 	<url type="homepage">https://itch.io/</url>
 	<url type="bugtracker">https://github.com/itchio/itch/issues</url>
 	<url type="help">https://itch.io/docs/itch/</url>
@@ -18,6 +18,10 @@
 	<categories>
 		<category>Game</category>
 	</categories>
+	<branding>
+		<color type="primary" scheme_preference="light">#fa5c5cff</color>
+		<color type="primary" scheme_preference="dark">#d54c4cff</color>
+	</branding>
 	<description>
 		<p>
 		The itch.io app, itch, lets you effortlessly download and run games and software from itch.io. All of your downloads are kept in a single place and are automatically updated. Access your collections and purchases, or browse for new games via the in-app browser.
@@ -73,16 +77,32 @@
   </content_rating>
 	<screenshots>
 		<screenshot type="default">
-			<caption>Collections</caption>
-			<image>https://static.itch.io/images/app/collections@1x.png</image>
+			<caption>Library</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/library.png</image>
 		</screenshot>
 		<screenshot>
-			<caption>Content browsing</caption>
-			<image>https://static.itch.io/images/app/gamepage@1x.png</image>
+			<caption>Store</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/store.png</image>
 		</screenshot>
 		<screenshot>
-			<caption>Offline browser games</caption>
-			<image>https://static.itch.io/images/app/html5@1x.png</image>
+			<caption>Downloads</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/downloads.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Game</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/game.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Login</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/login.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Startup</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/startup.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>Settings</caption>
+			<image>https://raw.githubusercontent.com/flathub/io.itch.itch/quality/screenshots/setting.png</image>
 		</screenshot>
 	</screenshots>
 	<releases>
