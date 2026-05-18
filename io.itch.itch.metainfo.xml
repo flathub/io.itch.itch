@@ -86,6 +86,9 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="26.13.0" date="2026-05-18">
+			<description></description>
+		</release>
 		<release version="v26.9.0" date="2026-02-21">
 			<description>
 				<p>This release upgrades Electron from 25 to 40, overhauls sandboxing across Linux,
