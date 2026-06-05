@@ -86,6 +86,104 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="v26.13.0" date="2026-05-18">
+			<url>https://github.com/itchio/itch/releases/tag/v26.13.0</url>
+			<description>
+				<p>A follow-up to 26.12.0 with Upload page fixes and an Electron bump.</p>
+				<p><em>Upload</em></p>
+				<ul>
+					<li>The source picker in the push dialog now has separate "Select folder" and "Select .zip" buttons, since a single file dialog can't pick both a folder and a file</li>
+					<li>Fixed drag and drop of a source folder or <code>.zip</code> onto the push dialog, which broke when Electron removed the <code>File.path</code> property; the path is now resolved via <code>webUtils.getPathForFile</code></li>
+					<li>The build list toolbar now reflows for narrow window widths instead of overflowing</li>
+				</ul>
+				<p><em>Electron</em></p>
+				<ul>
+					<li>Upgraded Electron from 41 to 42.1.0</li>
+				</ul>
+				<p><em>Translations</em></p>
+				<ul>
+					<li>Synced translations</li>
+				</ul>
+			</description>
+		</release>
+		<release version="v26.12.0" date="2026-05-14">
+			<url>https://github.com/itchio/itch/releases/tag/v26.12.0</url>
+			<description>
+				<p>A small follow-up to 26.11.0 that opens the Upload page to all users and surfaces information about optimized patches.</p>
+				<p><em>Upload</em></p>
+				<ul>
+					<li>The Upload entry in the sidebar and the Upload tile on the new-tab page are now shown to everyone, not just kitch users</li>
+					<li>When butler has finished producing an optimized patch for a build, the Upload page now reports the optimized patch size (instead of the original) with a bolt icon and a tooltip explaining what it is</li>
+					<li>The per-build file list shows the original and optimized patches as separate entries, with the original listed first</li>
+				</ul>
+				<p><em>Security</em></p>
+				<ul>
+					<li>npm audit fix for transitive dependency advisories</li>
+				</ul>
+			</description>
+		</release>
+		<release version="v26.11.0" date="2026-05-12">
+			<url>https://github.com/itchio/itch/releases/tag/v26.11.0</url>
+			<description>
+				<p>Adds a UI for uploading builds to itch.io with butler without needing to drop down to the terminal, upgrades to Electron 41 and TypeScript 6, and includes accessibility, hotkey, and Linux autostart fixes.</p>
+				<p>This version of the app is linked to butler version 15.27.0.</p>
+				<p><em>Uploading builds with butler</em></p>
+				<ul>
+					<li>A new "Upload" entry in the sidebar opens a Builds page that lists every build you've pushed with butler, with project, channel, version, status, size, and pushed time. The list can be filtered by status (All / Live / Processing / Failed) and searched by project, channel, or version. Each row expands to show per-file details (archive, patch, signature, manifest, unpacked), the build ID, the user who pushed it, the original <code>butler push</code> command, and an error message if the push failed.</li>
+					<li>A new push dialog lets you push a build by picking a project, picking or creating a channel (with an option to mark new channels as hidden), entering an optional user version, and dropping a folder or <code>.zip</code> as the source. Recent source folders are remembered and offered for re-use.</li>
+					<li>Before pushing, you can run a preview that compares the source against the latest build on the channel and shows the number of files that would be uploaded, the patch size, the source size, and the top new, modified, and deleted files.</li>
+					<li>While a push is running, you can track it with a live progress display showing the current phase (preparing, diffing, uploading, finishing), bytes read and uploaded, patch size, and ETA. System notifications are used to update you on the status of the build.</li>
+				</ul>
+				<p><em>New environment variable for launched games: <code>ITCHIO_APP=1</code></em></p>
+				<p>Every program started via itch now has <code>ITCHIO_APP=1</code> set in its environment. Games can read this to detect that they were started by the itch.io desktop app.</p>
+				<p><em>Login</em></p>
+				<ul>
+					<li>The OAuth login screen now has a "Browser didn't open?" disclosure that reveals the OAuth URL with a copy button, so the URL can be pasted manually in environments where the app can't open a browser.</li>
+				</ul>
+				<p><em>Hotkeys</em></p>
+				<ul>
+					<li>Added zoom in (<code>Ctrl/Cmd+=</code>), zoom out (<code>Ctrl/Cmd+-</code>), and reset zoom (<code>Ctrl/Cmd+0</code>) to the View menu</li>
+				</ul>
+				<p><em>Linux</em></p>
+				<ul>
+					<li>Fixed several issues with <code>openAtLogin</code> / <code>openAsHidden</code> and <code>.desktop</code> file handling</li>
+					<li>The autostart <code>.desktop</code> file is now written to <code>$XDG_CONFIG_HOME/autostart</code> instead of <code>$XDG_CONFIG_HOME</code> directly</li>
+					<li>The installed <code>.desktop</code> file is now looked up in <code>$XDG_DATA_HOME/applications</code> and <code>/usr/share/applications</code>, instead of only <code>/usr/share/applications</code></li>
+					<li>"Open as hidden" now actually starts the app hidden on autostart, by injecting a <code>--hidden</code> flag into the autostart copy's <code>Exec=</code> line; manual launches via menu or icon still show a window</li>
+					<li>The autostart <code>.desktop</code> file is no longer deleted on app startup when <code>openAtLogin</code> is its default-off value, so user-managed autostart files survive</li>
+				</ul>
+				<p><em>Bug Fixes</em></p>
+				<ul>
+					<li>Fixed prevent-sleep not engaging while a game is running, due to a null-check that was always falsy</li>
+					<li>Fixed the <code>Itch</code> object in HTML games not being exposed to the page; now uses Electron's <code>contextBridge</code> instead of the deprecated <code>webFrame.executeJavaScript</code></li>
+					<li>Fixed locale code validation: locale codes are now normalized to BCP 47 (<code>pt_BR</code> to <code>pt-BR</code>) and validated via <code>Intl</code> before use, falling back to English on invalid values</li>
+					<li>Sidebar tab list now scrolls vertically when there are more tabs than fit, instead of clipping</li>
+					<li>Fixed the "disable network in sandbox" checkbox in preferences being toggled when clicking elsewhere in the surrounding row</li>
+					<li>Fixed a bug where auto-update could get stuck cycling between items and never finishing any of them</li>
+				</ul>
+				<p><em>Accessibility</em></p>
+				<ul>
+					<li>The custom select dropdown (used for language, install location, sandbox type, and upload pickers) is now reachable by keyboard tab navigation and rendered as a real <code>&lt;button&gt;</code></li>
+				</ul>
+				<p><em>Internals</em></p>
+				<ul>
+					<li>Upgraded Electron from 40 to 41</li>
+					<li>Upgraded to TypeScript 6; removed the legacy <code>noImplicitAny: false</code> and <code>useUnknownInCatchVariables: false</code> compatibility flags</li>
+					<li>Added a translation for butlerd error code 19000 so messages from butler surface as readable text instead of a raw code</li>
+				</ul>
+				<p><em>Translations</em></p>
+				<ul>
+					<li>Reworked the i18n sync script</li>
+					<li>Fixed the Weblate project URL</li>
+					<li>Synced translations</li>
+				</ul>
+				<p><em>Development</em></p>
+				<ul>
+					<li>Restored hot reloading on code changes; the renderer bundle is no longer cached across app refreshes</li>
+					<li><code>develop.mjs</code> no longer leaves the terminal in a broken state when the app is interrupted with Ctrl-C (runs <code>stty sane</code> on exit)</li>
+				</ul>
+			</description>
+		</release>
 		<release version="v26.9.0" date="2026-02-21">
 			<description>
 				<p>This release upgrades Electron from 25 to 40, overhauls sandboxing across Linux,
