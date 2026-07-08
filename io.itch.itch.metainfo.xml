@@ -88,6 +88,9 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="26.15.0" date="2026-07-07">
+			<description></description>
+		</release>
 		<release version="v26.13.0" date="2026-05-18">
 			<url>https://github.com/itchio/itch/releases/tag/v26.13.0</url>
 			<description>
