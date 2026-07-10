@@ -88,7 +88,7 @@
 		</screenshot>
 	</screenshots>
 	<releases>
-		<release version="v26.15.0" date="2026-07-07">
+		<release version="26.15.0" date="2026-07-07">
 			<url>https://github.com/itchio/itch/releases/tag/v26.15.0</url>
 			<description>
 				<p>This release adds a page for browsing and installing games from itch.io bundles you own, a platform filter on the collection, bundle, and library pages, accessibility improvements to the sort and filter dropdowns, and an Electron bump.</p>
@@ -121,7 +121,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="v26.13.0" date="2026-05-18">
+		<release version="26.13.0" date="2026-05-18">
 			<url>https://github.com/itchio/itch/releases/tag/v26.13.0</url>
 			<description>
 				<p>A follow-up to 26.12.0 with Upload page fixes and an Electron bump.</p>
@@ -141,7 +141,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="v26.12.0" date="2026-05-14">
+		<release version="26.12.0" date="2026-05-14">
 			<url>https://github.com/itchio/itch/releases/tag/v26.12.0</url>
 			<description>
 				<p>A small follow-up to 26.11.0 that opens the Upload page to all users and surfaces information about optimized patches.</p>
@@ -157,7 +157,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="v26.11.0" date="2026-05-12">
+		<release version="26.11.0" date="2026-05-12">
 			<url>https://github.com/itchio/itch/releases/tag/v26.11.0</url>
 			<description>
 				<p>Adds a UI for uploading builds to itch.io with butler without needing to drop down to the terminal, upgrades to Electron 41 and TypeScript 6, and includes accessibility, hotkey, and Linux autostart fixes.</p>
@@ -219,7 +219,7 @@
 				</ul>
 			</description>
 		</release>
-		<release version="v26.9.0" date="2026-02-21">
+		<release version="26.9.0" date="2026-02-21">
 			<description>
 				<p>This release upgrades Electron from 25 to 40, overhauls sandboxing across Linux,
 					macOS, and Windows, makes install planning non-blocking, and adds support for
@@ -356,11 +356,11 @@
 				</ul>
 			</description>
 		</release>
-		<release version="v26.6.0" date="2026-02-06">
+		<release version="26.6.0" date="2026-02-06">
 		</release>
-		<release version="v26.1.9" date="2024-06-06">
+		<release version="26.1.9" date="2024-06-06">
 		</release>
-		<release version="v25.5.1" date="2021-05-11">
+		<release version="25.5.1" date="2021-05-11">
       <url>https://github.com/itchio/itch/releases/tag/v25.5.1</url>
       <description>
         <ul>
