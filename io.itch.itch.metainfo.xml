@@ -88,6 +88,39 @@
 		</screenshot>
 	</screenshots>
 	<releases>
+		<release version="v26.15.0" date="2026-07-07">
+			<url>https://github.com/itchio/itch/releases/tag/v26.15.0</url>
+			<description>
+				<p>This release adds a page for browsing and installing games from itch.io bundles you own, a platform filter on the collection, bundle, and library pages, accessibility improvements to the sort and filter dropdowns, and an Electron bump.</p>
+				<p><em>Bundles</em></p>
+				<ul>
+					<li>Bundles you own now show up in your Library, each with its own page listing every game in the bundle</li>
+					<li>The bundle page can be sorted, searched by title, and filtered by platform, classification, and installed status</li>
+					<li>Games can be installed directly from the bundle page</li>
+					<li>Requires a version of butler with bundle support</li>
+				</ul>
+				<p><em>Filtering</em></p>
+				<ul>
+					<li>Added a platform filter (Windows, macOS, Linux, Web) to the collection, bundle, and library pages</li>
+				</ul>
+				<p><em>Accessibility</em></p>
+				<ul>
+					<li>The sort and filter dropdowns are now keyboard and screen reader friendly, with combobox/listbox roles and arrow-key navigation</li>
+				</ul>
+				<p><em>Hotkeys</em></p>
+				<ul>
+					<li>Removed the <code>Ctrl+Alt+Backspace</code> shortcut that force-killed the last running game (#3453)</li>
+				</ul>
+				<p><em>Upload</em></p>
+				<ul>
+					<li>Fixed the file labels shown for builds that are still processing</li>
+				</ul>
+				<p><em>Electron</em></p>
+				<ul>
+					<li>Upgraded Electron from 42.1.0 to 43.0.0</li>
+				</ul>
+			</description>
+		</release>
 		<release version="v26.13.0" date="2026-05-18">
 			<url>https://github.com/itchio/itch/releases/tag/v26.13.0</url>
 			<description>
