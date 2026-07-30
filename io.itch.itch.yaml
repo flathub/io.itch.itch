@@ -122,8 +122,8 @@ modules:
       - type: archive
         strip-components: 0
         archive-type: zip
-        url: https://broth.itch.zone/itch/linux-amd64/26.15.0/archive/default
-        sha256: c5bc21f9584bb7802d5875ca5244483dae5360efbc6e39677b0bf497d2df8b10
+        url: https://broth.itch.zone/itch/linux-amd64/26.17.0/archive/default
+        sha256: af270c163b804f74f384ad24819b0c7d79161db54c6e662f29f8c6ee68b25aee
         x-checker-data:
           type: html
           url: https://broth.itch.zone/itch/linux-amd64/LATEST
