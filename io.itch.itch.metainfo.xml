@@ -15,9 +15,6 @@
 	<url type="contribute">https://github.com/itchio/itch/blob/master/CODE_OF_CONDUCT.md</url>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>MIT</project_license>
-	<categories>
-		<category>Game</category>
-	</categories>
 	<description>
 		<p>
 			The itch.io app, itch, lets you effortlessly download and run games and software from itch.io. 
