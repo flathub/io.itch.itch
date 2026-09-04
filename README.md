@@ -9,10 +9,12 @@ Install, update and play indie games
 Uses wine as a base, to provide support for windows games.
 
 ## Development
-  - Development tools: `sudo dnf install -y flatpak-builder`
-  - Install dependencies: `flatpak install flathub org.winehq.Wine/x86_64/stable-23.08 org.freedesktop.Sdk/x86_64/23.08`
-  - Build application: `flatpak-builder build io.itch.Itch.yaml --install --user --force-clean`
-  - Run application: `flatpak run io.itch.Itch`
+
+1. Development tools: `sudo dnf install -y flatpak-builder`
+2. Install dependencies: `flatpak install flathub org.winehq.Wine/x86_64/stable-25.08 org.freedesktop.Sdk/x86_64/25.08`
+3. Install: `./install.sh`
+	- This step also builds
+4. Run application: `flatpak run io.itch.Itch`
 
 ## References
 Built off work of [@gjpin](https://github.com/gjpin/itch-flatpak)
