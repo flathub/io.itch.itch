@@ -22,8 +22,11 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.ScreenSaver
 
-  # Needed for the tray icon to work properly
-  - --own-name=org.kde.*
+  # Electron registers with the watcher and must own
+  # org.freedesktop.StatusNotifierItem-<pid>-<n>. itch-run execs into the
+  # app so it stays PID 2 in the sandbox.
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.freedesktop.StatusNotifierItem-2-1
 
   - --env=PATH=/app/bin:/usr/bin:/usr/lib/extensions/vulkan/gamescope/bin
   - --env=WINEPREFIX=/var/data/wine
