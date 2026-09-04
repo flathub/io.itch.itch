@@ -10,7 +10,7 @@ Uses wine as a base, to provide support for windows games.
 
 ## Development
 
-1. Development tools: `sudo dnf install -y flatpak-builder`
+1. Development tools: `flatpak install flathub org.flatpak.Builder`
 2. Install dependencies: `flatpak install flathub org.winehq.Wine/x86_64/stable-25.08 org.freedesktop.Sdk/x86_64/25.08`
 3. Install: `./install.sh`
 	- This step also builds
