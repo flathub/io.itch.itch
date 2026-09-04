@@ -1,11 +1,17 @@
 app-id: io.itch.itch
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version '25.08'
+runtime-version: &runtime-version '26.08'
 sdk: org.freedesktop.Sdk
 base: org.winehq.Wine
-base-version: stable-25.08
+base-version: stable-26.08
 command: itch-run
 separate-locales: false
+# Copied from
+# https://github.com/flathub/org.winehq.Wine/blob/639730a8b682a1a6f929a780c91f0a2bf2bc6cf5/org.winehq.Wine.yml#L6
+# as per https://github.com/flathub/org.winehq.Wine/issues/345
+x-gl-version: &gl-version '1.4'
+x-gl-versions: &gl-versions 26.08;26.08-extra;1.4
+x-gl-merge-dirs: &gl-merge-dirs vulkan/icd.d;glvnd/egl_vendor.d;egl/egl_external_platform.d;OpenCL/vendors;lib/dri;lib/d3d;lib/gbm;vulkan/explicit_layer.d;vulkan/implicit_layer.d;vdpau
 finish-args:
 #  - --allow=devel # For Wine crash handling
   - --allow=multiarch
@@ -33,7 +39,10 @@ finish-args:
   - --env=WINEDLLOVERRIDES=mscoree,mshtml='
   - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib:/app/lib32/wine/wined3d:/app/lib/wine/wined3d
   - --env=LD_LIBRARY_PATH=/app/lib:/app/lib32
-  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0:/app/lib32/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0
+  # Copied from
+  # https://github.com/flathub/org.winehq.Wine/blob/639730a8b682a1a6f929a780c91f0a2bf2bc6cf5/org.winehq.Wine.yml#L26
+  # as per https://github.com/flathub/org.winehq.Wine/issues/345
+  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0:/app/lib32/gstreamer-1.0:/usr/lib/extensions/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/codecs-extra/lib/gstreamer-1.0:/usr/lib/i386-linux-gnu/codecs-extra/lib/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 
   - --persist=.wine
@@ -41,18 +50,40 @@ finish-args:
 #  - --persist=.
 
 inherit-extensions:
-  - org.freedesktop.Platform.GL32
-  - org.freedesktop.Platform.Compat.i386
-  - org.freedesktop.Platform.codecs_extra.i386
   - org.winehq.Wine.gecko
   - org.winehq.Wine.mono
 
 add-extensions:
+  # Mostly Copied from
+  # https://github.com/flathub/org.winehq.Wine/blob/639730a8b682a1a6f929a780c91f0a2bf2bc6cf5/org.winehq.Wine.yml#L31
+  # as per https://github.com/flathub/org.winehq.Wine/issues/345
+  org.freedesktop.Platform.Compat.i386:
+    directory: lib/i386-linux-gnu
+    version: *runtime-version
 
   org.freedesktop.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    no-autodownload: true
     version: *runtime-version
+    no-autodownload: true
+
+  org.freedesktop.Platform.GL32:
+    directory: lib/i386-linux-gnu/GL
+    version: *gl-version
+    versions: *gl-versions
+    subdirectories: true
+    no-autodownload: true
+    autodelete: false
+    add-ld-path: lib
+    merge-dirs: *gl-merge-dirs
+    download-if: active-gl-driver
+    enable-if: active-gl-driver
+    autoprune-unless: active-gl-driver
+
+  org.freedesktop.Platform.codecs_extra.i386:
+    directory: lib/i386-linux-gnu/codecs-extra
+    version: 26.08-extra
+    autodelete: false
+    add-ld-path: lib
 
 modules:
   - shared-modules/glu/glu-9.json
@@ -103,6 +134,19 @@ modules:
   - name: itch
     buildsystem: simple
     build-commands:
+      # Copied from
+      # https://github.com/flathub/org.winehq.Wine/blob/639730a8b682a1a6f929a780c91f0a2bf2bc6cf5/org.winehq.Wine.yml#L446
+      # as per https://github.com/flathub/org.winehq.Wine/issues/345
+      # To mount 32b extensions
+      - install -Dm644 -t ${FLATPAK_DEST}/etc ld.so.conf
+      - mkdir -p ${FLATPAK_DEST}/lib/i386-linux-gnu
+      - mkdir -p ${FLATPAK_DEST}/lib/debug/lib/i386-linux-gnu
+      - mkdir -p ${FLATPAK_DEST}/lib/i386-linux-gnu/GL
+      - mkdir -p ${FLATPAK_DEST}/lib/debug/lib/i386-linux-gnu/GL
+      - mkdir -p ${FLATPAK_DEST}/lib/i386-linux-gnu/dri/intel-vaapi-driver
+      - mkdir -p ${FLATPAK_DEST}/i386/nvidia-vaapi-driver
+
+      # Application installation
       - install -D -t "${FLATPAK_DEST}/share/applications/" ./io.itch.itch.desktop
       - install -D -t "${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/" ./io.itch.itch.svg
       - install -D -t "${FLATPAK_DEST}/share/metainfo/" ./io.itch.itch.metainfo.xml
@@ -121,6 +165,13 @@ modules:
 
       - type: file
         path: itch-run
+
+      # Needed for wow64
+      # as per https://github.com/flathub/org.winehq.Wine/issues/345
+      - type: file
+        url: https://raw.githubusercontent.com/flathub/org.winehq.Wine/639730a8b682a1a6f929a780c91f0a2bf2bc6cf5/ld.so.conf
+        dest-filename: ld.so.conf
+        sha256: 668c5c2fd1c26b444022ca5bed7031ca717fcfac5908addde4a5b8b37e6c7253
 
       - type: archive
         strip-components: 0
