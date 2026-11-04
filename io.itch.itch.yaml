@@ -69,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/netblue30/firejail.git
-        tag: 0.9.80
-        commit: 13604ce28418d1584a5ffc8eca4ac85522fef3b6
+        tag: 0.9.82.2
+        commit: 6c605b68df05c805598587c1a89763f20ac912ed
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -106,8 +106,7 @@ modules:
       - mv * /app/bin/
     sources:
       - type: file
-        url: 
-          https://raw.githubusercontent.com/itchio/press-kit/304cdedcd99e6c0e8cd8d5b08b9bfe773b679579/logos/app-icon.svg
+        url: https://raw.githubusercontent.com/itchio/press-kit/304cdedcd99e6c0e8cd8d5b08b9bfe773b679579/logos/app-icon.svg
         dest-filename: io.itch.itch.svg
         sha256: eaf979c6c7c315a7004971bc82bbced24c06d7d4fff7f518d7cfd83863ea4285
 
